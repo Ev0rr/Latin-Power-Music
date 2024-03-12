@@ -1,0 +1,180 @@
+.store {
+    display: flex;
+    justify-content: space-around;
+    max-width: 88%;
+    max-height: 100%;
+    flex-direction: row;
+    margin-top: 5%;
+    margin-left: 6%;
+}
+
+.store-img {
+    width: auto;
+    max-width: 20%;
+    overflow: hidden;
+}
+
+.store-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.store-info {
+    display: flex;
+    border: 2px solid #fe9800;
+    height: 100%;
+}
+
+h1 {
+    color: #fe9800;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+h2 {
+    color: #ffffff;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 30px;
+}
+
+.store-description p {
+    color: #ffffff;
+    font-size: 24px;
+    margin: 0%;
+    margin-left: 5%;
+    margin-right: 10%;
+}
+
+.store-description #agregar {
+    background-color: #ffffff;
+    color: #000000;
+    width: 23%;
+    max-width: 100%;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    font-weight: 600;
+    margin-left: 5%;
+    margin-right: 30%;
+    margin-top: 5%;
+    padding: 1%;
+    cursor: pointer;
+}
+
+.store-description #comprar {
+    background-color: #fe9800;
+    color: #000000;
+    width: 23%;
+    max-width: 100%;
+    border: 2px solid #fe9800;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    font-weight: 600;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 30%;
+    padding: 1%;
+    cursor: pointer;
+}
+
+.store-price {
+    display: flex;
+    margin: 0%;
+    margin-top: 16%;
+    margin-right: 10%;
+    font-size: 30px;
+}
+
+#precio{
+    color: #ffffff;
+    margin: 0%;
+    margin-right: 10%;
+}
+
+#precio-oferta {
+    color: #fe9800;
+    margin: 0%;
+}
+
+.store-album-col1, .store-album-col2, .store-album-col3, .store-album-col4{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: 6%;
+    margin-top: 6%;
+
+}
+
+.store-album-col5 {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: 6%;
+    margin-top: 6%;
+    margin-bottom: 6%;
+}
+
+.store-album-img img {
+    max-width: 81%;
+    max-height: 81%;
+    width: auto;
+}
+
+#agregar {
+    background-color: #ffffff;
+    color: #000000;
+    width: 40%;
+    max-width: 100%;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    font-weight: 600;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+
+#comprar {
+    background-color: #fe9800;
+    color: #000000;
+    width: 40%;
+    max-width: 100%;
+    border: 2px solid #fe9800;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    font-weight: 600;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.store-album-button {
+    text-align: center;
+    border: 2px solid #fe9800;
+    justify-content: center;
+    max-width: 80.3%;
+    width: auto;
+    max-height: 80.3%;
+    height: auto;
+}
+
+.store-album-button p {
+    text-align: center;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
