@@ -1,126 +1,40 @@
-.contenedor-imagen {
-    display: flex;
-    justify-content: center;
-}
-
-.contenedor-imagen img {
-    width: auto; /* Cambia el ancho de la imagen a automático */
-    height: auto; /* Cambia la altura de la imagen a automático */
-    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
-    max-height: 100%; /* Asegura que la imagen no exceda la altura del contenedor */
-    margin-bottom: 100px; /* Agrega un margen inferior de 20px */
-}
-
 h1 {
     color: #fe9800;
     text-align: center;
     padding: 50px;
-}
-
-/* Estilo para el contenedor principal */
-.artist1 {
-    display: flex; /* Usa el modelo de caja flexible */
-    align-items: center; /* Alinea verticalmente los elementos hijos */
-}
-
-/* Estilo para la imagen dentro del contenedor .new-img */
-.new-img img {
-    margin-right: 10px; /* Agrega un margen derecho a la imagen */
-}
-
-/* Estilo para el contenedor del texto */
-.text-container {
-    display: flex; /* Usa el modelo de caja flexible */
-    flex-direction: column; /* Organiza los elementos hijos en columnas */
-}
-
-/* Estilo para el h2 y el p dentro del contenedor .text-container */
-.text-container h2,
-.text-container p {
-    margin: 10px; /* Elimina los márgenes predeterminados del h2 y p */
-}
-
-/* Estilo para el h2 dentro del contenedor .text-container */
-.text-container h2 {
-    order: -1; /* Cambia el orden visual del h2 */
-    color: #fe9800; /* Cambia el color del texto del h2 a azul claro */
-    margin-bottom: 50px; 
-}
-
-/* Estilo para el p dentro del contenedor .text-container */
-.text-container p {
-    color: white; /* Cambia el color del texto del p a azul claro */
-    text-align: justify;
-    overflow: hidden;
-    max-width: 300px;
     
+}
+
+/* Estilos CSS para alinear las tarjetas en una fila */
+.card-deck, .card-deck2 {
+    display: flex; /* Usar display flex para hacer que los elementos hijos se comporten como elementos flexibles */
+    flex-wrap: nowrap; /* Evitar que los elementos se envuelvan a la siguiente línea */
+    justify-content: center; /* Distribuir el espacio restante entre las tarjetas */
+    gap: 20px;/* Espacio entre Tarjetas*/
 
 }
 
-
-
-
-
-
-
-
-.artist1 {
-    /* Establece el modelo de caja flexible para los elementos */
+.card-deck, .card-deck2 {
     display: flex;
-
-    /* Distribuye uniformemente los elementos a lo largo del contenedor */
-    justify-content: space-around;
-
-    /* Establece el ancho máximo del contenedor al 88% del ancho del contenedor principal */
-    max-width: 88%;
-
-    /* Agrega un borde de 2 píxeles de ancho, sólido y de color #fe9800 alrededor del contenedor */
-    border: 2px solid #fe9800;
-
-    /* Establece un margen izquierdo del 6% para el contenedor */
-    margin-left: 6%;
-
-    /* Establece un margen inferior del 3% para el contenedor */
-    margin-bottom: 3%;
-}
-
-
-
-
-
-
-
-
-.card-img-top {
-    max-height: 300px; /* Cambia este valor según sea necesario */
-}
-
-/* Estilos CSS para alinear las tarjetas en una fila */
-.card-deck {
-    display: flex; /* Usar display flex para hacer que los elementos hijos se comporten como elementos flexibles */
-    flex-wrap: nowrap; /* Evitar que los elementos se envuelvan a la siguiente línea */
-    justify-content: space-between; /* Distribuir el espacio restante entre las tarjetas */
-    margin-bottom: 80px;  /* Espacio entre Tarjetas*/
-
-}
-
-
-/* Estilos CSS para alinear las tarjetas en una fila */
-.card-deck2{
-    display: flex; /* Usar display flex para hacer que los elementos hijos se comporten como elementos flexibles */
-    flex-wrap: nowrap; /* Evitar que los elementos se envuelvan a la siguiente línea */
-    justify-content: space-between; /* Distribuir el espacio restante entre las tarjetas */
+    justify-content: center;
+    gap: 50px; /* Espacio entre las tarjetas */
 }
 
 .card {
-    flex: 0 0 auto; /* Hace que las tarjetas tengan un ancho automático basado en su contenido */
-    margin-right: 20px; /* Reducir el margen derecho entre las tarjetas */
-    margin-left: 20px; /* Reducir el margen izquierdo entre las tarjetas */
+    flex: 1; /* Permite que las tarjetas crezcan y se encojan para ocupar el espacio disponible */
+    max-width: calc(30% - 30px); /* Ajusta el ancho máximo de las tarjetas */
+    margin-bottom: 150px;
+}
 
+.card-img-top {
+    width: 100%;
+    height: auto;
 }
 
 
 .card-title{
     color: #fe9800;
     text-align: center;
+    margin: 50px;
+    
 }
