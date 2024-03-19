@@ -5,20 +5,16 @@ body {
 
 h1 {
     text-align: center;
-    margin-bottom: 100px;
-    color: orange;
+    margin-bottom: 60px;
 }
-
 h2{
-
-    margin-bottom: 100px;
-    color: white;
     text-align: center;
+    color: orange;
+    margin-bottom: 30px;
 }
-
 
 .lista li{
-    margin-bottom: 35px;
+    margin-bottom: 15px;
 }
 /* Define un estilo para los elementos con la clase 'border', estableciendo el ancho al 50% */
 .border {
@@ -28,11 +24,10 @@ h2{
 /* Define un estilo para los elementos con la clase 'card-artista' */
 .card-artista {
     /* Establece el ancho al 100% */
-    width: 60%;
+    width: 100%;
     /* Utiliza flexbox para alinear los elementos hijos horizontalmente */
     display: flex;
-    margin-bottom: 20px;
-    
+    margin-bottom: 40px;
 }
 
 /* Define un estilo para los elementos con la clase 'contenedor' */
@@ -41,7 +36,6 @@ h2{
     border: 2px solid orange;
     /* Aplica un margen de 50 píxeles */
     margin: 50px;
-    
 }
 
 /* Define un estilo para los elementos con el ID 'miImagen' */
@@ -51,25 +45,13 @@ h2{
     /* Establece la altura automática */
     height: auto;
     /* Aplica márgenes específicos */
-    margin: 12% -12% -12% 12%;
+    margin: 4% -4% -4% 4%;
 }
 
 /* Define un estilo para los elementos con la clase 'artistas' */
 .artistas {
     /* Aplica un margen superior de 25 píxeles */
-    margin-top: 60px;
+    margin-top: 25px;
     /* Aplica un margen izquierdo de 4% */
     margin-left: 4%;
-}
-
-
-
-
-
-
-
-
-.tarjeta {
-    margin-top: 60px; /* Ajusta este valor según sea necesario para mover las tarjetas hacia abajo */
-    /* Otros estilos de las tarjetas */
 }
