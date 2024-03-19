@@ -1,0 +1,75 @@
+/* Establece el color del texto en blanco para todo el cuerpo del documento */
+body {
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 100px;
+    color: orange;
+}
+
+h2{
+
+    margin-bottom: 100px;
+    color: white;
+    text-align: center;
+}
+
+
+.lista li{
+    margin-bottom: 35px;
+}
+/* Define un estilo para los elementos con la clase 'border', estableciendo el ancho al 50% */
+.border {
+    width: 50%;
+}
+
+/* Define un estilo para los elementos con la clase 'card-artista' */
+.card-artista {
+    /* Establece el ancho al 100% */
+    width: 60%;
+    /* Utiliza flexbox para alinear los elementos hijos horizontalmente */
+    display: flex;
+    margin-bottom: 20px;
+    
+}
+
+/* Define un estilo para los elementos con la clase 'contenedor' */
+.contenedor {
+    /* Dibuja un borde naranja alrededor del elemento */
+    border: 2px solid orange;
+    /* Aplica un margen de 50 píxeles */
+    margin: 50px;
+    
+}
+
+/* Define un estilo para los elementos con el ID 'miImagen' */
+#miImagen {
+    /* Establece el ancho al 100% */
+    width: 100%;
+    /* Establece la altura automática */
+    height: auto;
+    /* Aplica márgenes específicos */
+    margin: 12% -12% -12% 12%;
+}
+
+/* Define un estilo para los elementos con la clase 'artistas' */
+.artistas {
+    /* Aplica un margen superior de 25 píxeles */
+    margin-top: 60px;
+    /* Aplica un margen izquierdo de 4% */
+    margin-left: 4%;
+}
+
+
+
+
+
+
+
+
+.tarjeta {
+    margin-top: 60px; /* Ajusta este valor según sea necesario para mover las tarjetas hacia abajo */
+    /* Otros estilos de las tarjetas */
+}
