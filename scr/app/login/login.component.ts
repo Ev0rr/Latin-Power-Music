@@ -17,7 +17,7 @@ export class LoginComponent {
     contrasena: ['', Validators.required]
   });
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
 
   async onSubmit() {
     if (this.loginForm.valid) {
@@ -35,19 +35,22 @@ export class LoginComponent {
           const { success, token } = await response.json();
 
           if (success) {
-            // Store the token in local storage or a cookie
+            console.log('Token recibido del servidor:', token);
             localStorage.setItem('token', token);
-            // Navigate to the control panel
+            console.log('Token almacenado en localStorage correctamente.');
             this.router.navigate(['/control-panel']);
           } else {
             alert('Correo electrónico o contraseña incorrectos');
+            localStorage.removeItem('token');
           }
         } else {
           alert('Correo electrónico o contraseña incorrectos');
+          localStorage.removeItem('token');
         }
       } catch (error) {
         console.error(error);
         alert('Error en el servidor');
+        localStorage.removeItem('token');
       }
     }
   }
