@@ -1,1 +1,40 @@
-<p>crud-admins works!</p>
+<h1>CRUD ADMINISTRADORES</h1>
+<button (click)="showAddForm()">Agregar Administrador</button>
+<div class="container">
+
+    <!-- Formulario para agregar/editar administradores -->
+    <div *ngIf="showForm">
+        <h2>{{ editing ? 'Editar Administrador' : 'Agregar Administrador' }}</h2>
+        <form (submit)="submitForm()">
+            <label>Nombre:</label>
+            <input type="text" name="nombre" [(ngModel)]="admin.nombre" required>
+          
+            <label>Apellidos:</label>
+            <input type="text" name="apellidos" [(ngModel)]="admin.apellidos" required>
+          
+            <label>Teléfono:</label>
+            <input type="number" name="telefono" [(ngModel)]="admin.telefono" required>
+          
+            <label>Correo:</label>
+            <input type="email" name="correo" [(ngModel)]="admin.correo" required>
+          
+            <label>Contraseña:</label>
+            <input type="password" name="contrasena" [(ngModel)]="admin.contrasena" required>
+          
+            <label>Imagen:</label>
+            <input type="file" (change)="onFileSelected($event)" name="imagen" required>
+          
+            <button type="submit">{{ editing ? 'Editar' : 'Agregar' }}</button>
+          </form>
+    </div>
+
+    <!-- Lista de administradores -->
+    <ul>
+        <li *ngFor="let admin of admins">
+            <img [src]="admin.imagen" alt="Imagen de perfil">
+            <span>{{ admin.nombre }} {{ admin.apellidos }}</span>
+            <button (click)="editAdmin(admin)">Editar</button>
+            <button (click)="deleteAdmin(admin)">Eliminar</button>
+        </li>
+    </ul>
+</div>
