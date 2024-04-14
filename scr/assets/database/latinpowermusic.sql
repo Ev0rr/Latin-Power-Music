@@ -22,7 +22,7 @@ SET @@SESSION.SQL_LOG_BIN= 0;
 --
 
 SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ 'a05a675a-1414-11e9-9c82-cecd01b08c7e:1-491550428,
-a38a16d0-767a-11eb-abe2-cecd029e558e:1-381238852';
+a38a16d0-767a-11eb-abe2-cecd029e558e:1-381326060';
 
 --
 -- Table structure for table `administradores`
@@ -38,7 +38,7 @@ CREATE TABLE `administradores` (
   `telefono` bigint NOT NULL,
   `correo` varchar(45) NOT NULL,
   `contrasena` varchar(45) NOT NULL,
-  `imagen` blob NOT NULL,
+  `imagen` longblob NOT NULL,
   PRIMARY KEY (`id_administrador`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -66,7 +66,7 @@ CREATE TABLE `albumes` (
   `precio` decimal(3,2) NOT NULL,
   `descripcion` varchar(45) NOT NULL,
   `año` int NOT NULL,
-  `imagen` blob NOT NULL,
+  `imagen` longblob NOT NULL,
   `id_artista` int NOT NULL,
   PRIMARY KEY (`id_album`),
   KEY `id_artista_idx` (`id_artista`),
@@ -93,8 +93,8 @@ DROP TABLE IF EXISTS `artistas`;
 CREATE TABLE `artistas` (
   `id_artista` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
-  `descripcion` varchar(45) NOT NULL,
-  `imagen` blob NOT NULL,
+  `descripcion` varchar(100) NOT NULL,
+  `imagen` longblob NOT NULL,
   PRIMARY KEY (`id_artista`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -117,6 +117,7 @@ DROP TABLE IF EXISTS `boletos`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `boletos` (
   `id_boleto` int NOT NULL AUTO_INCREMENT,
+  `artista` varchar(45) NOT NULL,
   `precio` decimal(10,0) NOT NULL,
   `asiento` varchar(10) NOT NULL,
   `fecha_evento` date NOT NULL,
@@ -147,7 +148,7 @@ CREATE TABLE `lanzamientos` (
   `precio` decimal(10,0) NOT NULL,
   `descripcion` varchar(45) NOT NULL,
   `año` int NOT NULL,
-  `imagen` blob NOT NULL,
+  `imagen` longblob NOT NULL,
   `id_album` int NOT NULL,
   PRIMARY KEY (`id_lanzamiento`),
   KEY `id_album_idx` (`id_album`),
@@ -175,7 +176,7 @@ CREATE TABLE `noticias` (
   `id_noticia` int NOT NULL AUTO_INCREMENT,
   `titulo` varchar(45) NOT NULL,
   `descripcion` varchar(250) NOT NULL,
-  `imagen` blob NOT NULL,
+  `imagen` longblob NOT NULL,
   PRIMARY KEY (`id_noticia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -188,6 +189,33 @@ LOCK TABLES `noticias` WRITE;
 /*!40000 ALTER TABLE `noticias` DISABLE KEYS */;
 /*!40000 ALTER TABLE `noticias` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `tienda`
+--
+
+DROP TABLE IF EXISTS `tienda`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tienda` (
+  `id_tienda` int NOT NULL,
+  `artista` varchar(45) NOT NULL,
+  `titulo` varchar(45) NOT NULL,
+  `descripción` varchar(100) NOT NULL,
+  `precio` decimal(10,0) NOT NULL,
+  `imagen` longblob NOT NULL,
+  PRIMARY KEY (`id_tienda`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tienda`
+--
+
+LOCK TABLES `tienda` WRITE;
+/*!40000 ALTER TABLE `tienda` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tienda` ENABLE KEYS */;
+UNLOCK TABLES;
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -199,4 +227,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-13 17:51:14
+-- Dump completed on 2024-04-14  0:44:22
