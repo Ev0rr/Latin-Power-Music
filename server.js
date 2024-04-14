@@ -12,8 +12,8 @@ app.use(cors({
   credentials: true
 }));
 app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 // Configura la conexión a la base de datos MySQL
 const connection = mysql.createConnection({
@@ -58,6 +58,68 @@ app.post('/login', (req, res) => {
         // Si el usuario existe, crea un token JWT y envíalo como respuesta
         const token = jwt.sign({ id: results[0].id }, 'bplygdu6jwg3nwtszvhf-mysql.services.clever-cloud.com', { expiresIn: '1h' });
         res.send({ success: true, token });
+    });
+});
+
+app.post('/crud-admins', (req, res) => {
+    const { nombre, apellidos, telefono, correo, contrasena, imagen } = req.body;
+
+    const sql = 'INSERT INTO administradores (nombre, apellidos, telefono, correo, contrasena, imagen) VALUES (?, ?, ?, ?, ?, ?)';
+    connection.query(sql, [nombre, apellidos, telefono, correo, contrasena, imagen], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Error interno del servidor al agregar administrador');
+            return;
+        }
+
+        res.status(201).send('Administrador agregado correctamente');
+    });
+});
+
+// Obtiene todos los administradores
+app.get('/crud-admins', (req, res) => {
+    const sql = 'SELECT * FROM administradores';
+    connection.query(sql, (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Error interno del servidor al obtener administradores');
+            return;
+        }
+
+        res.json(results);
+    });
+});
+
+// Actualiza un administrador existente
+app.put('/crud-admins/:id', (req, res) => {
+    const { nombre, apellidos, telefono, correo, contrasena, imagen } = req.body;
+    const id = req.params.id;
+
+    const sql = 'UPDATE administradores SET nombre = ?, apellidos = ?, telefono = ?, correo = ?, contrasena = ?, imagen = ? WHERE id_administrador = ?';
+    connection.query(sql, [nombre, apellidos, telefono, correo, contrasena, imagen, id], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Error interno del servidor al actualizar administrador');
+            return;
+        }
+
+        res.status(200).send('Administrador actualizado correctamente');
+    });
+});
+
+// Elimina un administrador
+app.delete('/crud-admins/:id', (req, res) => {
+    const id = req.params.id;
+
+    const sql = 'DELETE FROM administradores WHERE id_administrador = ?';
+    connection.query(sql, [id], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Error interno del servidor al eliminar administrador');
+            return;
+        }
+
+        res.status(200).send('Administrador eliminado correctamente');
     });
 });
 
