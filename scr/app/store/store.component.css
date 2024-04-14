@@ -1,3 +1,10 @@
+h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 5%;
+    margin-top: 8%;
+}
+
 .store {
     display: flex;
     justify-content: space-around;
@@ -26,13 +33,16 @@
     height: 100%;
 }
 
-h1 {
+#description1 {
     color: #fe9800;
     margin-left: 5%;
     margin-right: 5%;
+    margin-bottom: 0;
+    display: inline-block;
+
 }
 
-h2 {
+#description2 {
     color: #ffffff;
     margin-left: 5%;
     margin-right: 5%;
