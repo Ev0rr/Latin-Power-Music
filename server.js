@@ -6,17 +6,21 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-// Agrega el middleware 'cors'
+// Permitir solicitudes desde la URL de tu aplicación Angular en Vercel
+app.use(cors({
+  origin: ['https://latin-power-music.vercel.app', 'http://localhost:4200'],
+  credentials: true
+}));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Configura la conexión a la base de datos MySQL
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'latinpowermusic'
+    host: 'bplygdu6jwg3nwtszvhf-mysql.services.clever-cloud.com',
+    user: 'uf83iptrh2lnmylj',
+    password: '4vv6VVOxZiXVTLEmd9sL',
+    database: 'bplygdu6jwg3nwtszvhf',
 });
 
 // Conecta a la base de datos MySQL
@@ -52,12 +56,13 @@ app.post('/login', (req, res) => {
         }
 
         // Si el usuario existe, crea un token JWT y envíalo como respuesta
-        const token = jwt.sign({ id: results[0].id }, 'localhost', { expiresIn: '1h' });
+        const token = jwt.sign({ id: results[0].id }, 'bplygdu6jwg3nwtszvhf-mysql.services.clever-cloud.com', { expiresIn: '1h' });
         res.send({ success: true, token });
     });
 });
 
 // Inicia el servidor
-app.listen(3000, () => {
-    console.log('Servidor web iniciado en el puerto 3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor web iniciado en el puerto ${PORT}`);
 });

@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "CI=false ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:Latin-Power-Music": "node dist/latin-power-music/server/server.mjs"
@@ -21,6 +21,7 @@
     "@angular/platform-server": "^17.2.0",
     "@angular/router": "^17.2.0",
     "@angular/ssr": "^17.2.0",
+    "@vercel/postgres": "^0.7.2",
     "add": "^2.0.6",
     "bcrypt": "^5.1.1",
     "bindings": "^1.5.0",
