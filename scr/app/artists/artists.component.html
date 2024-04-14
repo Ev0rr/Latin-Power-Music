@@ -1,58 +1,170 @@
-<!DOCTYPE html>
-<html lang="en">
+<h1>¡CONOCE A NUESTROS ARTISTAS!</h1>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body> 
-
-<h1>Otros Artistas</h1>
-
+<div class="card-artista">
+    <img id="miImagen" src="../../assets/images/CanoAguilar_Portada.png" class="card-img-top" alt="...">
+    <div class="artista-info">
+        <h1 class="nombre-artista">CANO AGUILAR</h1>
+        <p class="info-artista">Cano Aguilar, un cantante originario de Tlahualilo, Durango.<br>
+            Su propuesta musical se enmarca en el género regional mexicano.<br>
+            <br>Su interpretación dentro del regional mexicano fusiona los instrumentos<br> de banda,
+            norteño y sierreño.<br>
+            <br>Su primer lanzamiento bajo el sello de Latin Power Music fue el EP <br>
+            titulado “UNA VOZ QUE HARÁ HISTORIA”. Este emocionante proyecto<br>
+            contiene 8 melodías en las que CANO AGUILAR se acompaña de <br>
+            los sonidos del mariachi, el acordeón, el saxofón y otros instrumentos,<br>
+            al puro estilo de la tambora.<br>
+            <br>Las canciones de este EP son: “Nieves de enero”, “Total ya se fue”,<br>
+            “Mis tres animales”, “Libro Cano”, “El chivo”, “Siete leguas”,<br>
+            “Y por esa calle vive” y “Puño de tierra”.<br>
+            <br>Con su identidad única y su estilo musical distintivo, CANO AGUILAR<br>
+            se perfila como una de las grandes promesas juveniles dentro del<br>
+            género regional mexicano.
+        </p>
+    </div>
+</div>
+<h1 class="lanzamientos">LANZAMIENTOS</h1>
+<ngx-slick-carousel class="albums" #slickModal="slick-carousel" [config]="albumConfig">
+    <div ngxSlickItem class="album-img" *ngFor="let slide of albums; trackBy: trackByFn">
+        <img src="{{ slide.img }}" alt="{{ slide.alt }}">
+        <div class="album-button">
+            <button>Escuchar ahora</button>
+        </div>
+    </div>
+</ngx-slick-carousel>
+<h1 class="otros-artistas">OTROS ARTISTAS</h1>
 <div class="card-deck">
     <div class="card">
-    <img src="../../assets/images/elegantes-del-llano.png" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h2 class="card-title">ELEGANTES</h2>
-    </div>
-    </div>
-    <div class="card">
-    <img src="../../assets/images/el-bebeto-donde-estas.png" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h2 class="card-title">El BEBETO</h2>
-    </div>
+        <img src="../../assets/images/el-bebeto-artista.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            EL BEBETO
+        </div>
     </div>
     <div class="card">
-    <img src="../../assets/images/donde-esta-tu-amor.png" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h2 class="card-title">SHAIRA</h2>
+        <img src="../../assets/images/alana-sol-artista.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            ALANA SOL
+        </div>
     </div>
+    <div class="card">
+        <img src="../../assets/images/la-ley-de-cupido.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            HUICHOL MUSICAL
+        </div>
+    </div>
+    <div class="card">
+        <img src="../../assets/images/3ballmty-artista.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            3BALLMTY
+        </div>
     </div>
 </div>
 
 
 <div class="card-deck2">
     <div class="card">
-    <img src="../../assets/images/los-cuadra.png" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h2 class="card-title">LOS CUADRA</h2>
-    </div>
-    </div>
-    <div class="card">
-    <img src="../../assets/images/la-ley-de-cupido.png" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h2 class="card-title">HUICHOL</h2>
-    </div>
+        <img src="../../assets/images/los-primos-mx-artista.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            LOS PRIMOS MX
+        </div>
     </div>
     <div class="card">
-    <img src="../../assets/images/amigos-con-derechos.png" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h2 class="card-title">ROMEO</h2>
+        <img src="../../assets/images/mordidita-antidoto.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            ANTÍDOTO
+        </div>
     </div>
+    <div class="card">
+        <img src="../../assets/images/la-pantera-urbana-artista.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            LA PANTERA URBANA
+        </div>
+    </div>
+    <div class="card">
+        <img src="../../assets/images/paraiso-en-vivo-power-duranguense.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            AUTÉNTICO PARAÍSO DE DURANGO
+        </div>
+    </div>
+</div>
+
+<div class="card-deck">
+    <div class="card">
+        <img src="../../assets/images/los-cuadra.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            LOS CUADRA
+        </div>
+    </div>
+    <div class="card">
+        <img src="../../assets/images/los-mier-artista.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            LOS MIER
+        </div>
+    </div>
+    <div class="card">
+        <img src="../../assets/images/elegantes-del-llano.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            ELEGANTES DEL LLANO
+        </div>
+    </div>
+    <div class="card">
+        <img src="../../assets/images/paizaz-de-guanacevi.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            PAIZAZ DE GUANACEVÍ
+        </div>
     </div>
 </div>
 
 
-</body>
-</html>
+<div class="card-deck2">
+    <div class="card">
+        <img src="../../assets/images/los-del-nido-artista.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            LOS DEL NIDO
+        </div>
+    </div>
+    <div class="card">
+        <img src="../../assets/images/ponzoña-musical-artista.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            PONZOÑA MUSICAL
+        </div>
+    </div>
+    <div class="card">
+        <img src="../../assets/images/real-de-avino-artista.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            REAL DE AVINO
+        </div>
+    </div>
+    <div class="card">
+        <img src="../../assets/images/los-sembradores-artista.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            LOS SEMBRADORES
+        </div>
+    </div>
+</div>
+
+<div class="card-deck">
+    <div class="card">
+        <img src="../../assets/images/w-corona-artista.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            W. CORONA
+        </div>
+    </div>
+    <div class="card">
+        <img src="../../assets/images/shaira-artista.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            SHAIRA
+        </div>
+    </div>
+    <div class="card">
+        <img src="../../assets/images/griss-romero-en-vivo.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            GRISS ROMERO
+        </div>
+    </div>
+    <div class="card">
+        <img src="../../assets/images/chayin-rubio.png" id="card-img-top" alt="...">
+        <div class="text-area">
+            CHAYÍN RUBIO
+        </div>
+    </div>
+</div>
