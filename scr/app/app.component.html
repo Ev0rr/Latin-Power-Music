@@ -1,6 +1,6 @@
 <header>
     <div class="navbar">
-        <a routerLinkActive="active" routerLink="/home" class="nav-link-lpm">
+        <a routerLinkActive="active" routerLink="/home" class="nav-link">
             <div class="logo-lpm">
                 <img src="../../assets/images/logo-lpm.png" alt="logo lpm" />
             </div>
@@ -12,21 +12,20 @@
             <a routerLinkActive="active" routerLink="/news" class="nav-link">NOTICIAS</a>
             <a routerLinkActive="active" routerLink="/store" class="nav-link">TIENDA</a>
             <a routerLinkActive="active" routerLink="/tickets" class="nav-link">BOLETOS</a>
-            <div class="shopping-car">
-                <a routerLinkActive="active" routerLink="/cart" class="nav-link-shopping-car">
-                    <img src="../../assets/images/shopping-car.png" alt="shopping-car" />
-                </a>
-            </div>
+        </div>
+        <div class="shopping-car">
+            <a routerLinkActive="active" routerLink="/cart" class="nav-link">
+                <img src="../../assets/images/shopping-car.png" alt="shopping-car" />
+            </a>
         </div>
         <div class="hamburger-button">
             <button (click)="toggleOptions()">
                 <img src="../../assets/images/hamburger-button.png" alt="hamburger-button" />
             </button>
-            <div *ngIf="showOptions" class="options-container">
-                <!-- Contenido de las opciones -->
-                <ul>
-                    <li><a routerLinkActive="active" routerLink="/login" class="nav-link">Iniciar Sesión</a></li>
-                </ul>
+            <div id="modal" class="modal">
+                <a id="loginLink" routerLinkActive="active" routerLink="/login" class="nav-link" *ngIf="!authService.isAuthenticated()" (click)="handleLoginClick()">Iniciar Sesión</a>
+                <a id="logoutLink" routerLinkActive="active" routerLink="/login" class="nav-link" *ngIf="authService.isAuthenticated()" (click)="handleLogoutClick()">Cerrar Sesión</a>
+                <a id="logoutLink" routerLinkActive="active" routerLink="/control-panel" class="nav-link" *ngIf="authService.isAuthenticated()">Panel De Control</a>
             </div>
         </div>
     </div>
@@ -101,7 +100,6 @@
 
     <h2>Corporativo Latin Power Music</h2>
     <div class="copyright">
-        <p>&copy; 2012 Latin Power Music. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Latin Power Music. Todos los derechos reservados.</p>
     </div>
 </footer>
-<script src="app.component.js"></script>

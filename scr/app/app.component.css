@@ -1,128 +1,67 @@
-header {
-    background-color: #fe9800;
-    color: #000;
-    padding: 10px 20px;
-}
-
 .navbar {
-    display: flex;
-    align-items: center;
-    height: 7vh;
-}
-
-.nav-link-lpm {
-    display: flex;
-    align-items: center;
-    width: 6%;
-    height: 6%;
-    margin-right: 170px;
-}
-
-.logo-lpm {
-    display: flex;
-    align-items: center;
-    max-width: 80%;
-    max-height: 80%;
-    margin-left: 10% ;
-}
-
-.logo-lpm img {
+    position: fixed;
+    top: 0;
     width: 100%;
-    height: 100%;
-}
-
-.menu {
+    z-index: 999;
     display: flex;
-    gap: 80px;
+    justify-content: space-around;
     align-items: center;
+    background-color: #fe9800;
 }
 
 .nav-link {
+    color: #000000;
     text-decoration: none;
-    color: #000;
-    font-weight: Jura;
-    font-size: 15px;
-    transition: color 0.3s ease;
+    margin: 0 25px 0 25px;
 }
 
 .nav-link:hover {
-    color: #fff;
+    color: #ffffff;
 }
 
-.nav-link-shopping-car {
-    max-width: 60%;
-    min-height: 60%;
-}
-.shopping-car {
-    display: flex;
-    align-items: center;
+.logo-lpm img {
+    width: 70px;
 }
 
 .shopping-car img {
-    width: 100%;
-    height: 100%;
+    width: 30px;
 }
 
-.nav-link-shopping-car:after {
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    background-color: #ffcc00;
-    color: #333;
-    border-radius: 50%;
-    padding: 3px 6px;
-    font-size: 16px;
-}
-
-.hamburger-button {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-left: 150px;
-}
-
-.hamburger-button img {
-    width: 100%;
-    height: 100%;
+.hamburger-button button {
+    background-color: transparent;
+    border: none;
     cursor: pointer;
 }
 
-.options-container {
-    display: block !important;
+.modal {
+    display: none;
     position: absolute;
-    top: 100%;
-    left: -60px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más suave y desplazada hacia abajo */
-    z-index: 1;
-    width: 120px; /* Ajusta el ancho según sea necesario */
-    border: 3px solid #fe9800; /* Borde para definir el límite del modal */
-    border-radius: 8px; /* Esquinas redondeadas */
-    overflow: hidden; /* Asegura que los bordes redondeados se muestren correctamente */
+    top: 50px;
+    /* Ajusta la posición según sea necesario */
+    right: 0;
+    /* Ajusta la posición según sea necesario */
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    z-index: 1000;
 }
 
-.options-container ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.options-container li {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    color: #000;
-}
-
-.options-container li a{
-    color: #000;
-}
-
-.options-container li:last-child {
-    border-bottom: none; 
+.modal a {
+    text-decoration: none;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 a {
     cursor: pointer;
+    text-align: left;
+}
+
+.modal a:hover {
+    color: #fe9800;
 }
 
 .footer {
@@ -152,7 +91,7 @@ a {
 .footer .col-md-2 {
     justify-content: space-between;
     align-items: center;
-    margin-left: 10vh;
+    margin-left: 5vh;
 }
 
 .footer .col-md-3 {
@@ -244,5 +183,60 @@ h2 {
 }
 
 .active {
-    color:#ffffff;
+    color: #ffffff;
+}
+
+@media only screen and (max-width: 768px) {
+
+    header {
+        overflow-x: hidden;
+    }
+
+    .navbar {
+        padding: 0;
+    }
+
+    .nav-link {
+        font-size: 8px;
+        margin-right: 5px;
+    }
+
+    .nav-link-lpm {
+        width: 50px;
+        height: auto;
+        margin-left: 0%;
+    }
+
+    .nav-link-lpm img {
+        width: 30px;
+        height: auto;
+    }
+
+    .shopping-car img {
+        width: 10px;
+        height: auto;
+        margin-top: 5px;
+        margin-right: 0px;
+    }
+
+    .hamburger-button img {
+        width: 10px;
+        height: auto;
+        margin-top: 5px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .footer .row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer .col-md-1,
+    .footer .col-md-2,
+    .footer .col-md-3,
+    .footer .col-md-4 {
+        margin-left: 0;
+    }
 }
