@@ -1,1 +1,61 @@
-<p>crud-tickets works!</p>
+<h1>CRUD BOLETOS</h1>
+<button (click)="showAddForm()">Agregar Boleto</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ARTISTA</th>
+            <th>PRECIO</th>
+            <th>ASIENTO</th>
+            <th>FECHA DEL EVENTO</th>
+            <th>TIPO DE BOLETO</th>
+            <th>ACCIONES</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ticket of tickets">
+            <td>{{ ticket.id_boleto }}</td>
+            <td>{{ ticket.artista }}</td>
+            <td>{{ ticket.precio }}</td>
+            <td>{{ ticket.asiento }}</td>
+            <td>{{ ticket.fecha_evento }}</td>
+            <td>{{ ticket.tipo_boleto }}</td>
+            <td>
+                <button id="edit-button" (click)="editTicket(ticket)">Editar</button>
+                <button id="delete-button" (click)="deleteTicket(ticket)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="container" [style.display]="showForm ? 'block' : 'none'" class="form-container">
+
+    <!-- Formulario para agregar/editar boletos -->
+    <div *ngIf="showForm">
+        <h2>{{ editing ? 'Editar Boleto' : 'Agregar Boleto' }}</h2>
+        <form (submit)="submitForm()">
+            <label>Artista:</label>
+            <input type="text" name="Artista" [(ngModel)]="ticket.artista" required>
+
+            <label>Precio:</label>
+            <input type="number" name="Precio" [(ngModel)]="ticket.precio" required>
+
+            <label>Asiento:</label>
+            <input type="text" name="Asiento" [(ngModel)]="ticket.asiento" required>
+
+            <label for="fechaEvento">Fecha De Evento:</label>
+            <input type="date" id="fechaEvento" name="fechaEvento" [(ngModel)]="ticket.fecha_evento" required>
+
+            <label for="tipoBoleto">Tipo De Boleto:</label>
+            <select id="tipoBoleto" name="tipoBoleto" [(ngModel)]="ticket.tipo_boleto" required>
+                <option value="GENERAL">GENERAL</option>
+                <option value="SILVER">SILVER</option>
+                <option value="GOLD">GOLD</option>
+                <option value="VIP">VIP</option>
+            </select>
+
+            <button type="submit">Agregar</button>
+            <button type="button" id="cancel-button" (click)="cancelForm()">Cancelar</button>
+        </form>
+    </div>
+</div>
