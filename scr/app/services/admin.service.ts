@@ -25,14 +25,14 @@ export class AdminService {
   }
 
   // Método para agregar un nuevo administrador
-  addAdmin(admin: any) {
-    return this.http.post(this.apiUrl, admin).pipe(
-      catchError(error => throwError('Error al agregar administrador: ' + error.message))
-    );
+  addAdmin(admin: any): Observable<any> {
+    window.location.reload();
+    return this.http.post<any>(`${this.apiUrl}`, admin);
   }
 
   // Método para actualizar un administrador existente
   updateAdmin(admin: any) {
+    window.location.reload();
     return this.http.put(`${this.apiUrl}/${admin.id_administrador}`, admin).pipe(
       catchError(error => throwError('Error al actualizar administrador: ' + error.message))
     );
@@ -40,6 +40,7 @@ export class AdminService {
 
   // Método para eliminar un administrador
   deleteAdmin(id: number) {
+    window.location.reload();
     return this.http.delete(`${this.apiUrl}/${id}`).pipe(
       catchError(error => throwError('Error al eliminar administrador: ' + error.message))
     );
@@ -47,6 +48,7 @@ export class AdminService {
 
   // Método para subir una imagen
   uploadImage(file: File) {
+    window.location.reload();
     const formData: FormData = new FormData();
     formData.append('file', file, file.name);
     return this.http.post('/api/upload', formData).pipe(
