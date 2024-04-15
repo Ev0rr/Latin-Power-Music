@@ -1,1 +1,64 @@
-<p>crud-albums works!</p>
+<h1>CRUD ÁLBUMES</h1>
+<button (click)="showAddForm()">Agregar Álbum</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ARTISTA</th>
+            <th>TITULO</th>
+            <th>PRECIO</th>
+            <th>DESCRIPCIÓN</th>
+            <th>AÑO</th>
+            <th>IMAGEN</th>
+            <th>ACCIONES</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let album of albums">
+            <td>{{ album.id_album }}</td>
+            <td>{{ album.artista }}</td>
+            <td>{{ album.titulo }}</td>
+            <td>{{ album.precio }}</td>
+            <td>{{ album.descripcion }}</td>
+            <td>{{ album.fecha }}</td>
+            <td>
+                <img *ngIf="album.imagen" [src]="'data:image/jpeg;base64,' + album.imagen" alt="Imagen del album" width="50" height="50">
+                <span *ngIf="!album.imagen">No image</span>
+            </td>
+            <td>
+                <button id="edit-button" (click)="editAlbum(album)">Editar</button>
+                <button id="delete-button" (click)="deleteAlbum(album)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="container" [style.display]="showForm ? 'block' : 'none'" class="form-container">
+
+    <!-- Formulario para agregar/editar administradores -->
+    <div *ngIf="showForm">
+        <h2>{{ editing ? 'Editar Álbum' : 'Agregar Álbum' }}</h2>
+        <form (submit)="submitForm()">
+            <label>Artista:</label>
+            <input type="text" name="artista" [(ngModel)]="album.artista" required>
+
+            <label>Titulo:</label>
+            <input type="text" name="titulo" [(ngModel)]="album.titulo" required>
+
+            <label>Precio:</label>
+            <input type="number" name="precio" [(ngModel)]="album.precio" required>
+
+            <label>Descripción:</label>
+            <input type="text" name="descripcion" [(ngModel)]="album.descripcion" required>
+
+            <label>Año de lanzamiento:</label>
+            <input type="number" name="fecha" [(ngModel)]="album.fecha" required>
+
+            <label>Imagen:</label>
+            <input type="file" (change)="onFileSelected($event)" name="imagen" required>
+
+            <button type="submit">Agregar</button>
+            <button type="button" id="cancel-button" (click)="cancelForm()">Cancelar</button>
+        </form>
+    </div>
+</div>
