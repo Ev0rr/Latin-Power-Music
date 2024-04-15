@@ -84,6 +84,7 @@ export class AppComponent implements OnInit {
   }
   logout() {
     this.authService.logout(); // Llama a la función logout() del servicio AuthService
+    window.location.reload();
   }
 
   handleLoginClick(): void {
@@ -97,5 +98,7 @@ export class AppComponent implements OnInit {
     console.log('Cerrando sesión...');
     this.authService.logout();
     this.isLoggedIn = false;
+    window.location.reload();
   }
+  
 }
