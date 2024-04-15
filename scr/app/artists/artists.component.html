@@ -24,13 +24,14 @@
 </div>
 <h1 class="lanzamientos">LANZAMIENTOS</h1>
 <ngx-slick-carousel class="albums" #slickModal="slick-carousel" [config]="albumConfig">
-    <div ngxSlickItem class="album-img" *ngFor="let slide of albums; trackBy: trackByFn">
-        <img src="{{ slide.img }}" alt="{{ slide.alt }}">
-        <div class="album-button">
-            <button>Escuchar ahora</button>
-        </div>
+  <div ngxSlickItem class="album-img" *ngFor="let slide of albums; trackBy: trackByFn">
+    <img src="{{ slide.img }}" alt="{{ slide.alt }}">
+    <div class="album-button">
+      <a [href]="slide.spotifyUrl" target="_blank"><button>Escuchar ahora</button></a>
     </div>
+  </div>
 </ngx-slick-carousel>
+
 <h1 class="otros-artistas">OTROS ARTISTAS</h1>
 <div class="card-deck">
     <div class="card">
