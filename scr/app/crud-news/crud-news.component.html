@@ -1,1 +1,49 @@
-<p>crud-news works!</p>
+<h1>CRUD NOTICIAS</h1>
+<button (click)="showAddForm()">Agregar Noticia</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>TITULO</th>
+            <th>DESCRIPCIÓN</th>
+            <th>IMAGEN</th>
+            <th>ACCIONES</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let noticia of noticias">
+            <td>{{ noticia.id_noticia }}</td>
+            <td>{{ noticia.titulo }}</td>
+            <td>{{ noticia.descripcion }}</td>
+            <td>
+                <img *ngIf="noticia.imagen" [src]="'data:image/jpeg;base64,' + noticia.imagen" alt="Imagen de la noticia" width="50" height="50">
+                <span *ngIf="!noticia.imagen">No image</span>
+            </td>
+            <td>
+                <button id="edit-button" (click)="editNew(noticia)">Editar</button>
+                <button id="delete-button" (click)="deleteNew(noticia)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="container" [style.display]="showForm ? 'block' : 'none'" class="form-container">
+
+    <!-- Formulario para agregar/editar noticias -->
+    <div *ngIf="showForm">
+        <h2>{{ editing ? 'Editar Noticia' : 'Agregar Noticia' }}</h2>
+        <form (submit)="submitForm()">
+            <label>Titulo:</label>
+            <input type="text" name="titulo" [(ngModel)]="noticia.titulo" required>
+
+            <label>Descripción:</label>
+            <input type="text" name="descripción" [(ngModel)]="noticia.descripcion" required>
+
+            <label>Imagen:</label>
+            <input type="file" (change)="onFileSelected($event)" name="imagen" required>
+
+            <button type="submit">Agregar</button>
+            <button type="button" id="cancel-button" (click)="cancelForm()">Cancelar</button>
+        </form>
+    </div>
+</div>
