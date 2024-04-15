@@ -3,16 +3,17 @@
     <img src="{{ slide.img }}" alt="{{ slide.alt }}">
   </div>
 </ngx-slick-carousel>
-
-<h1>ÁLBUMES</h1>
+<h1>ALBUMES</h1>
 <ngx-slick-carousel class="albums" #slickModal="slick-carousel" [config]="albumConfig">
-  <div ngxSlickItem class="album-img" *ngFor="let slide of albums; trackBy: trackByFn">
-    <img src="{{ slide.img }}" alt="{{ slide.alt }}">
+  <div ngxSlickItem class="album-img" *ngFor="let album of albums; let i = index; trackBy: trackByFn">
+    <img src="{{ album.img }}" alt="{{ album.alt }}">
     <div class="album-button">
-      <button>Escuchar ahora</button>
+      <button (click)="redirectToSpotify(album.spotifyUrl)">Escuchar ahora</button>
     </div>
   </div>
 </ngx-slick-carousel>
+
+
 
 <h1>LANZAMIENTOS</h1>
 <ngx-slick-carousel class="releases" #slickModal="slick-carousel" [config]="releaseConfig">
