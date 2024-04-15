@@ -1,1 +1,65 @@
-<p>crud-releases works!</p>
+<h1>CRUD LANZAMIENTOS</h1>
+<button (click)="showAddForm()">Agregar Lanzamiento</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ARTISTA</th>
+            <th>TITULO</th>
+            <th>PRECIO</th>
+            <th>DESCRIPCIÓN</th>
+            <th>AÑO</th>
+            <th>IMAGEN</th>
+            <th>ACCIONES</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let release of releases">
+            <td>{{ release.id_lanzamiento }}</td>
+            <td>{{ release.artista }}</td>
+            <td>{{ release.titulo }}</td>
+            <td>{{ release.precio }}</td>
+            <td>{{ release.descripcion }}</td>
+            <td>{{ release.fecha }}</td>
+            <td>
+                <img *ngIf="release.imagen" [src]="'data:image/jpeg;base64,' + release.imagen" alt="Imagen del album" width="50" height="50">
+                <span *ngIf="!release.imagen">No image</span>
+            </td>
+            <td>
+                <button id="edit-button" (click)="editRelease(release)">Editar</button>
+                <button id="delete-button" (click)="deleteRelease(release)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="container" [style.display]="showForm ? 'block' : 'none'" class="form-container">
+
+    <!-- Formulario para agregar/editar Lanzamientos -->
+    <div *ngIf="showForm">
+        <h2>{{ editing ? 'Editar Lanzamiento' : 'Agregar Lanzamiento' }}</h2>
+        <form (submit)="submitForm()">
+            <label>Artista:</label>
+            <input type="text" name="artista" [(ngModel)]="release.artista" required>
+
+            <label>Titulo:</label>
+            <input type="text" name="titulo" [(ngModel)]="release.titulo" required>
+
+            <label>Precio:</label>
+            <input type="number" name="precio" [(ngModel)]="release.precio" required>
+
+            <label>Descripción:</label>
+            <input type="text" name="descripcion" [(ngModel)]="release.descripcion" required>
+
+            <label>Año de lanzamiento:</label>
+            <input type="number" name="fecha" [(ngModel)]="release.fecha" required>
+
+            <label>Imagen:</label>
+            <input type="file" (change)="onFileSelected($event)" name="imagen" required>
+
+            <button type="submit">Agregar</button>
+            <button type="button" id="cancel-button" (click)="cancelForm()">Cancelar</button>
+        </form>
+    </div>
+</div>
+
