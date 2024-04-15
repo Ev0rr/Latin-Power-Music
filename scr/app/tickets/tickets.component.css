@@ -1,85 +1,90 @@
-body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #000; /* Fondo negro */
-    color: #fff; /* Texto blanco */
-  }
-  
-  .informacion-evento h2 {
-    margin-bottom: 30px; /* Aplica un margen inferior negativo para subir el h2 */
-  }
+h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 5%;
+    margin-top: 8%;
+}
 
-  
-  header h1 {
-    margin: 0;
-  }
-  
-  main {
-    padding: 20px;
-  }
-  
-  .evento {
-    background-color: #212121; /* Fondo gris oscuro */
+.informacion-evento h2 {
+    margin-bottom: 30px;
+}
+
+.evento {
+    background-color: #212121;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
     padding: 20px;
-    border: 2px solid #FE9800; /* Línea naranja */
-  }
-  
-  .fecha-hora {
+    border: 2px solid #FE9800;
+    width: 80%;
+}
+
+.fecha-hora {
     display: flex;
-    justify-content: flex-end; /* Esto alineará los elementos hacia la derecha */
+    justify-content: flex-end;
     font-size: 18px;
-   
-  }
-  
-  .fecha,
-  .hora {
-    margin-left: 20px; /* Ajusta el espacio entre fecha y hora según sea necesario */
-  }
-  
+    color: #fff;
+
+}
+
+.fecha,
+.hora {
+    margin-left: 20px;
+}
+
 
 .informacion-evento {
     display: flex;
-    justify-content: space-between; /* Para espaciar elementos */
-  }
-  
+    justify-content: space-between;
+    color: #fff;
+}
 
-  .boton-container {
-    display: inline-block; /* Para que el contenedor se ajuste al contenido */
-    margin-top: 25px; /* Agrega un margen superior de 10px */
 
-  }
+.boton-container button {
+    display: flex;
+    background-color: #FE9800;
+    color: #FFFFFF;
+    padding: 5px;
+    border: 1px solid #FE9800;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    margin-top: 25px;
+}
 
-  .boton-container .btn-primary {
-    background-color: #FE9800; /* Cambia el color de fondo del botón a #ff6600 */
-    border-color: #FE9800 ; /* Cambia el color del borde del botón a #ff6600 */
-  }
- 
-  .boton-container .btn-primary:hover .boton {
-    color: #ff6600; /* Cambia el color del texto del botón a #ff6600 cuando pases el cursor sobre él */
-  }
-  
-  
-  .boton-cont {
-    text-align: center; /* Alinear el botón al centro */
-    margin-top: 20px; /* Agregar margen superior para hacer que el botón baje más */
+.boton-container button:hover {
+    background-color: #FFFFFF;
+    color: #FE9800;
+    border: 1px solid #FE9800;
+}
 
-  }
-  
-  .boton-cont button {
-    font-size: 20px; /* Tamaño de fuente más grande para hacer el botón más grande */
-    padding: 5px 20px; /* Ajustar el relleno del botón según sea necesario */
-    background-color:#FE9800; /* Cambiar el color de fondo del botón */
-    border-color:#FE9800 ; /* Cambiar el color del borde del botón */
-    color: rgb(0, 0, 0); /* Cambiar el color del texto del botón a blanco */
+
+.boton-cont {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.boton-cont button {
+    font-size: 20px;
+    padding: 5px 20px;
+    background-color: #FE9800;
+    border: 1px solid #FE9800;
+    color: #FFFFFF;
     border-radius: 15px;
     width: 200px;
-    font-weight:530
+    font-weight: 530;
+    cursor: pointer;
+}
 
- }
+.boton-cont button:hover {
+    background-color: #FFFFFF;
+    color: #FE9800;
+    border: 1px solid #FE9800;
+}
 
- h2{
+h2 {
     font-weight: 400;
- }
+}
