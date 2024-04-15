@@ -83,7 +83,7 @@ p {
     color: #000000;
     margin: 30px;
     padding: 3px;
-    width: 50%;
+    width: 80%; /* Cambiar el valor de width para ajustar el ancho del botón */
     max-width: 100%;
     border: 2px solid #fe9800;
     border-radius: 5px;
