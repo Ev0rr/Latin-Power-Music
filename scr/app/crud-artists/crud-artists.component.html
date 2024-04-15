@@ -1,1 +1,49 @@
-<p>crud-artists works!</p>
+<h1>CRUD ARTISTAS</h1>
+<button (click)="showAddForm()">Agregar Artista</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>DESCRIPCIÓN</th>
+            <th>IMAGEN</th>
+            <th>ACCIONES</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let artist of artists">
+            <td>{{ artist.id_artista }}</td>
+            <td>{{ artist.nombre }}</td>
+            <td>{{ artist.descripcion }}</td>
+            <td>
+                <img *ngIf="artist.imagen" [src]="'data:image/jpeg;base64,' + artist.imagen" alt="Imagen del artista" width="50" height="50">
+                <span *ngIf="!artist.imagen">No image</span>
+            </td>
+            <td>
+                <button id="edit-button" (click)="editArtist(artist)">Editar</button>
+                <button id="delete-button" (click)="deleteArtist(artist)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="container" [style.display]="showForm ? 'block' : 'none'" class="form-container">
+
+    <!-- Formulario para agregar/editar administradores -->
+    <div *ngIf="showForm">
+        <h2>{{ editing ? 'Editar Artista' : 'Agregar Artista' }}</h2>
+        <form (submit)="submitForm()">
+            <label>Nombre:</label>
+            <input type="text" name="nombre" [(ngModel)]="artist.nombre" required>
+
+            <label>Descripción:</label>
+            <input type="text" name="descripcion" [(ngModel)]="artist.descripcion" required>
+
+            <label>Imagen:</label>
+            <input type="file" (change)="onFileSelected($event)" name="imagen" required>
+
+            <button type="submit">Agregar</button>
+            <button type="button" id="cancel-button" (click)="cancelForm()">Cancelar</button>
+        </form>
+    </div>
+</div>
