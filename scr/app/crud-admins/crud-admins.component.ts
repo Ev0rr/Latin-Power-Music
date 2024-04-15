@@ -3,6 +3,7 @@ import { AdminService } from '../services/admin.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-crud-admins',
@@ -18,7 +19,11 @@ export class CrudAdminsComponent {
   admins: any[] = [];
   admin: any = {};
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService, private http: HttpClient) { }
+
+  ngOnInit() {
+    this.getAdmins();
+  }
 
   showAddForm() {
     this.showForm = true;
@@ -26,13 +31,26 @@ export class CrudAdminsComponent {
     this.admin = {}; // Reinicializa el objeto admin
   }
 
+  cancelForm() {
+    this.showForm = false;
+  }
+
   submitForm() {
     if (this.editing) {
-      // Lógica para editar un administrador existente
+      this.adminService.updateAdmin(this.admin).subscribe(
+        () => {
+          console.log('Administrador actualizado correctamente');
+          // Actualizar la lista de administradores después de actualizar uno existente
+          this.getAdmins();
+        },
+        (error) => {
+          console.error('Error al actualizar administrador:', error);
+        }
+      );
     } else {
       this.adminService.addAdmin(this.admin).subscribe(
-        (response) => {
-          console.log('Administrador agregado correctamente:', response);
+        () => {
+          console.log('Administrador agregado correctamente');
           // Actualizar la lista de administradores después de agregar uno nuevo
           this.getAdmins();
         },
@@ -47,6 +65,7 @@ export class CrudAdminsComponent {
     this.adminService.getAdmins().subscribe(
       (admins) => {
         this.admins = admins;
+        console.log('Datos de administradores recuperados correctamente:', admins);
       },
       (error) => {
         console.error('Error al obtener administradores:', error);
@@ -55,16 +74,19 @@ export class CrudAdminsComponent {
   }
 
   onFileSelected(event: any) {
-    const file: File = event.target.files[0]; // Obtiene el archivo seleccionado
+    const file: File = event.target.files[0];
     const reader = new FileReader();
-  
-    // Define la lógica a ejecutar cuando se complete la carga del archivo
+
+    // Define the onload event handler for the FileReader
     reader.onload = (e: any) => {
-      // Asigna la imagen seleccionada al objeto admin
-      this.admin.imagen = e.target.result;
+      // Get the base64 data from the FileReader
+      const base64Data = e.target.result;
+
+      // Set the imagen property of the admin object to the base64 data
+      this.admin.imagen = base64Data.split(',')[1];
     };
-  
-    // Lee el contenido del archivo como una URL de datos
+
+    // Read the image file as a data URL
     reader.readAsDataURL(file);
   }
 

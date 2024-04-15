@@ -1,6 +1,39 @@
 <h1>CRUD ADMINISTRADORES</h1>
 <button (click)="showAddForm()">Agregar Administrador</button>
-<div class="container">
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>APELLIDOS</th>
+            <th>TELÉFONO</th>
+            <th>CORREO</th>
+            <th>CONTRASEÑA</th>
+            <th>IMAGEN</th>
+            <th>ACCIONES</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let admin of admins">
+            <td>{{ admin.id_administrador }}</td>
+            <td>{{ admin.nombre }}</td>
+            <td>{{ admin.apellidos }}</td>
+            <td>{{ admin.telefono }}</td>
+            <td>{{ admin.correo }}</td>
+            <td>{{ admin.contrasena }}</td>
+            <td>
+                <img *ngIf="admin.imagen" [src]="'data:image/jpeg;base64,' + admin.imagen" alt="Imagen del administrador" width="50" height="50">
+                <span *ngIf="!admin.imagen">No image</span>
+            </td>
+            <td>
+                <button id="edit-button" (click)="editAdmin(admin)">Editar</button>
+                <button id="delete-button" (click)="deleteAdmin(admin)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="container" [style.display]="showForm ? 'block' : 'none'" class="form-container">
 
     <!-- Formulario para agregar/editar administradores -->
     <div *ngIf="showForm">
@@ -8,33 +41,24 @@
         <form (submit)="submitForm()">
             <label>Nombre:</label>
             <input type="text" name="nombre" [(ngModel)]="admin.nombre" required>
-          
+
             <label>Apellidos:</label>
             <input type="text" name="apellidos" [(ngModel)]="admin.apellidos" required>
-          
+
             <label>Teléfono:</label>
             <input type="number" name="telefono" [(ngModel)]="admin.telefono" required>
-          
+
             <label>Correo:</label>
             <input type="email" name="correo" [(ngModel)]="admin.correo" required>
-          
+
             <label>Contraseña:</label>
             <input type="password" name="contrasena" [(ngModel)]="admin.contrasena" required>
-          
+
             <label>Imagen:</label>
             <input type="file" (change)="onFileSelected($event)" name="imagen" required>
-          
-            <button type="submit">{{ editing ? 'Editar' : 'Agregar' }}</button>
-          </form>
-    </div>
 
-    <!-- Lista de administradores -->
-    <ul>
-        <li *ngFor="let admin of admins">
-            <img [src]="admin.imagen" alt="Imagen de perfil">
-            <span>{{ admin.nombre }} {{ admin.apellidos }}</span>
-            <button (click)="editAdmin(admin)">Editar</button>
-            <button (click)="deleteAdmin(admin)">Eliminar</button>
-        </li>
-    </ul>
+            <button type="submit">Agregar</button>
+            <button type="button" id="cancel-button" (click)="cancelForm()">Cancelar</button>
+        </form>
+    </div>
 </div>
