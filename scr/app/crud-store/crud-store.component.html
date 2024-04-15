@@ -1,1 +1,59 @@
-<p>crud-store works!</p>
+<h1>CRUD PRODUCTOS</h1>
+<button (click)="showAddForm()">Agregar Producto</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ARTISTA</th>
+            <th>TITULO</th>
+            <th>DESCRIPCIÓN</th>
+            <th>PRECIO</th>
+            <th>IMAGEN</th>
+            <th>ACCIONES</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{ product.id_tienda }}</td>
+            <td>{{ product.artista }}</td>
+            <td>{{ product.titulo }}</td>
+            <td>{{ product.descripcion }}</td>
+            <td>{{ product.precio }}</td>
+            <td>
+                <img *ngIf="product.imagen" [src]="'data:image/jpeg;base64,' + product.imagen" alt="Imagen del producto" width="50" height="50">
+                <span *ngIf="!product.imagen">No image</span>
+            </td>
+            <td>
+                <button id="edit-button" (click)="editProduct(product)">Editar</button>
+                <button id="delete-button" (click)="deleteProduct(product)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="container" [style.display]="showForm ? 'block' : 'none'" class="form-container">
+
+    <!-- Formulario para agregar/editar productos -->
+    <div *ngIf="showForm">
+        <h2>{{ editing ? 'Editar Producto' : 'Agregar Producto' }}</h2>
+        <form (submit)="submitForm()">
+            <label>Artista:</label>
+            <input type="text" name="artista" [(ngModel)]="product.artista" required>
+
+            <label>Titulo:</label>
+            <input type="text" name="titulo" [(ngModel)]="product.titulo" required>
+
+            <label>Descripción:</label>
+            <input type="text" name="descripcion" [(ngModel)]="product.descripcion" required>
+
+            <label>Precio:</label>
+            <input type="number" name="precio" [(ngModel)]="product.precio" required>
+
+            <label>Imagen:</label>
+            <input type="file" (change)="onFileSelected($event)" name="imagen" required>
+
+            <button type="submit">Agregar</button>
+            <button type="button" id="cancel-button" (click)="cancelForm()">Cancelar</button>
+        </form>
+    </div>
+</div>
