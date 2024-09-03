@@ -8,8 +8,8 @@
 
     // async function searchSongs(artistName, containerId) {
     //   try {
-    //     const clientId = '2d0313fe21a240449749da732b464d39'; // Reemplaza con tu Cliente ID de Spotify
-    //     const clientSecret = 'c58cd21d8a5247d6b888896680347766'; // Reemplaza con tu Cliente Secret de Spotify
+    //     const clientId = 'tu cliente_id'; // Reemplaza con tu Cliente ID de Spotify
+    //     const clientSecret = 'tu cliente_secret'; // Reemplaza con tu Cliente Secret de Spotify
 
     //     // Obtiene el token de acceso
     //     const accessToken = await getClientCredentialsToken(clientId, clientSecret);
